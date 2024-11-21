@@ -8,6 +8,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 base_url = 'http://example.com/'  # 替换为实际基础链接
 output_dir = './downloads'
 max_workers = 16  # 最大线程数
+rclone_drive_path = 'testDrive:/webapp/file/'
 
 def make_dir(path):
     os.makedirs(path, exist_ok=True)
@@ -35,7 +36,7 @@ def extract_links(url):
     return links
 
 def sync_to_remote(local_folder, remote_folder):
-    result = os.system(f'rclone copy "{local_folder}" testDrive:/webapp/file/{remote_folder.strip("/")}/')
+    result = os.system(f'rclone copy "{local_folder}" {rclone_drive_path}{remote_folder.strip("/")}/')
     if result != 0:
         print(f'Failed to sync folder: {local_folder} to remote storage.')
 
