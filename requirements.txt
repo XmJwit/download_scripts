@@ -1,0 +1,8 @@
+beautifulsoup4==4.12.3
+Use command "pip install beautifulsoup4"
+
+requests==2.31.0
+Use command "pip install requests"
+
+urljoin==1.0.0
+Use command "pip install urljoin"
